@@ -1,3 +1,3 @@
 export const environment = {
-  apiBaseUrl: 'https://localhost:7071/api'
+  apiBaseUrl: 'https://customerhub-vc1c.onrender.com/api'
 };
