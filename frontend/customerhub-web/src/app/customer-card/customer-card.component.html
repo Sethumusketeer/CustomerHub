@@ -1,0 +1,44 @@
+<div class="modal-backdrop">
+
+    <div class="customer-card">
+
+    <div class="card-header">
+        <h3>Customer Details</h3>
+        <button
+            type="button"
+            class="close-button"
+            (click)="onClose()">
+            ×
+        </button>
+    </div>
+
+    <div class="card-body">
+        <p>
+            <strong>Name:</strong>
+            {{ customer.name }}
+        </p>
+        <p>
+            <strong>Email:</strong>
+            {{ customer.email }}
+        </p>
+        <p>
+            <strong>Phone:</strong>
+            {{ customer.phone }}
+        </p>
+    </div>
+
+    <div class="card-footer">
+        <button
+            type="button"
+            class="edit-button"
+            (click)="viewDetails()">
+            View Details
+        </button>
+        <button
+            type="button"
+            (click)="onClose()">
+            Close
+        </button>
+        </div>
+    </div>
+</div>

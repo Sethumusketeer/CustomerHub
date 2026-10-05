@@ -1,0 +1,89 @@
+<div class="modal-backdrop">
+    <div class="user-modal">
+        <div class="modal-header">
+            <h3>Create User</h3>
+                <button
+                    type="button"
+                    class="close-button"
+                    (click)="onClose()">
+                    ×
+                </button>
+        </div>
+
+        <form
+            [formGroup]="userForm"
+            (ngSubmit)="createUser()">
+
+            <div class="modal-body">
+
+                <div class="form-group">
+                <label for="username">Username</label>
+
+                <input
+                    id="username"
+                    type="text"
+                    formControlName="username"
+                    placeholder="Enter username">
+
+                @if (
+                    userForm.controls.username.touched &&
+                    userForm.controls.username.invalid
+                ) {
+                    <small>Username is required.</small>
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+
+                <input
+                    id="password"
+                    type="password"
+                    formControlName="password"
+                    placeholder="Enter password">
+
+                @if (
+                    userForm.controls.password.touched &&
+                    userForm.controls.password.invalid
+                ) {
+                    <small>Password is required.</small>
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="role">Role</label>
+                    <select
+                        id="role"
+                        formControlName="role">
+                        <option value="User">User</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+            </div>
+        </div>
+        @if (saveError) {
+            <div class="save-error">
+                {{ saveError }}
+            </div>
+}
+        <div class="modal-footer">
+
+            <button
+                type="button"
+                (click)="onClose()">
+                Cancel
+            </button>
+
+            <button
+                type="submit"
+                [disabled]="userForm.invalid || isSaving">
+
+                @if (isSaving) {
+                    Creating...
+                } @else {
+                    Create User
+                }
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

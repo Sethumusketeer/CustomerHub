@@ -1,0 +1,54 @@
+h2 {
+  margin-bottom: 24px;
+}
+
+.customer-details {
+  max-width: 600px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.customer-details h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.customer-details p {
+  margin: 12px 0;
+  color: #4b5563;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.actions button,
+.actions a {
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.actions button:first-child {
+  background: #6b7280;
+  color: white;
+}
+
+.actions a {
+  background: #2563eb;
+  color: white;
+}
+
+.actions button:last-child {
+  background: #dc2626;
+  color: white;
+}

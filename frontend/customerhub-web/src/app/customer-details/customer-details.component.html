@@ -1,0 +1,39 @@
+<h2>Customer Details</h2>
+
+@if (isLoading) {
+  <p>Loading customer...</p>
+  } @else if (customer) {
+
+    <div class="customer-details">
+
+      <h3>{{ customer.name }}</h3>
+
+      <p>
+        <strong>Email:</strong>
+        {{ customer.email }}
+      </p>
+
+      <p>
+        <strong>Phone:</strong>
+        {{ customer.phone }}
+      </p>
+
+      <div class="actions">
+        <button (click)="goBack()">
+          Back to Customers
+        </button>
+
+        @if (isAdmin) {
+          <a [routerLink]="['/customers', customer.id, 'edit']">
+            Edit
+          </a>
+          <button type="button" (click)="deleteCustomer()">
+            Delete
+          </button>
+        }
+      </div>
+    </div>
+
+  } @else {
+    <p>Customer not found.</p>
+  }

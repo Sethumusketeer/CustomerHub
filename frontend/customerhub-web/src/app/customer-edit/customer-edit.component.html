@@ -1,0 +1,56 @@
+<h2>Edit Customer</h2>
+
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+
+  <div>
+    <label for="name">Name</label>
+
+    <input
+      id="name"
+      type="text"
+      formControlName="name"
+    />
+
+    @if (customerForm.controls.name.touched &&
+         customerForm.controls.name.invalid) {
+      <p>Name is required.</p>
+    }
+  </div>
+
+  <div>
+    <label for="email">Email</label>
+
+    <input
+      id="email"
+      type="email"
+      formControlName="email"
+    />
+
+    @if (customerForm.controls.email.touched &&
+         customerForm.controls.email.invalid) {
+      <p>Enter a valid email address.</p>
+    }
+  </div>
+
+  <div>
+    <label for="phone">Phone</label>
+
+    <input
+      id="phone"
+      type="text"
+      formControlName="phone"
+    />
+
+    @if (customerForm.controls.phone.touched &&
+         customerForm.controls.phone.invalid) {
+      <p>Phone is required.</p>
+    }
+  </div>
+
+  <button
+  type="submit"
+  [disabled]="customerForm.invalid || isSaving">
+  {{ isSaving ? 'Updating...' : 'Update Customer' }}
+</button>
+
+</form>

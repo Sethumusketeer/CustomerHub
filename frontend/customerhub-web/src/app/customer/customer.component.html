@@ -1,0 +1,57 @@
+<h2>Customers</h2>
+
+<div class="page-header">
+  <p>Manage your customers</p>
+
+  @if (isAdmin) {
+    <a class="add-button" routerLink="/customers/add">
+      + Add Customer
+    </a>
+  }
+</div>
+
+@if (selectedCustomer) {
+  <app-customer-card
+    [customer]="selectedCustomer"
+    (close)="selectedCustomer = undefined">
+  </app-customer-card>
+}
+
+@if (isLoading) {
+
+  <p>Loading customers...</p>
+
+} @else if (customers.length > 0) {
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (customer of customers; track customer.id) {
+        <tr>
+          <td>
+            <button
+              type="button"
+              class="customer-link"
+              (click)="showCustomerPreview(customer)">
+              {{ customer.name }}
+            </button>
+          </td>
+
+          <td>{{ customer.email }}</td>
+
+          <td>{{ customer.phone }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+} @else {
+  <p>No customers found.</p>
+}

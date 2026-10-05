@@ -1,0 +1,21 @@
+# Angular
+frontend/customerhub-web/node_modules/
+frontend/customerhub-web/dist/
+frontend/customerhub-web/.angular/
+frontend/customerhub-web/.vscode/
+
+# .NET
+backend/**/bin/
+backend/**/obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Logs
+*.log
+
+# OS
+Thumbs.db
+.DS_Store

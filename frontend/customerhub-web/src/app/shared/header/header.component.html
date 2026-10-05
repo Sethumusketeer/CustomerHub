@@ -1,0 +1,27 @@
+<header class="app-header">
+  <div class="header-content">
+
+    <a class="brand" routerLink="/customers">
+      CustomerHub
+    </a>
+
+    <nav>
+        @if (isAuthenticated) {
+            <a routerLink="/customers">
+            Customers
+            </a>
+
+            @if (isAdmin) {
+              <a routerLink="/users">
+                Users
+              </a>
+            }
+
+            <button type="button" (click)="logout()">
+            Logout
+            </button>
+        }
+    </nav>
+
+  </div>
+</header>

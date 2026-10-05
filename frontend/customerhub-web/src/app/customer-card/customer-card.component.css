@@ -1,0 +1,82 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1000;
+}
+
+.customer-card {
+  width: 420px;
+  max-width: calc(100% - 32px);
+
+  background: white;
+  border-radius: 12px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+  overflow: hidden;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.card-header h3 {
+  margin: 0;
+}
+
+.close-button {
+  border: none;
+  background: transparent;
+
+  font-size: 24px;
+  cursor: pointer;
+
+  color: #6b7280;
+}
+
+.close-button:hover {
+  color: #111827;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body p {
+  margin: 10px 0;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: flex-end;
+
+  padding: 16px 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.card-footer button {
+  padding: 8px 16px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: #2563eb;
+  color: white;
+
+  cursor: pointer;
+}
+
+.card-footer button:hover {
+  background: #1d4ed8;
+}
