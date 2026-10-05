@@ -10,10 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<CustomerHubDbContext>(options =>
-{
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("CustomerHubDb"));
-});
+    options.UseNpgsql(
+        builder.Configuration.GetConnectionString("CustomerHubDb")));
 
 builder.Services.AddControllers();
 
