@@ -40,12 +40,17 @@ builder.Services
         };
     });
 
+var allowedOrigin = builder.Configuration["Cors:AllowedOrigin"];
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AngularClient", policy =>
     {
         policy
-            .WithOrigins("http://localhost:4200")
+            .WithOrigins(
+                "http://localhost:4200",
+                allowedOrigin!
+            )
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
