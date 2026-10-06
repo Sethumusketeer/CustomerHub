@@ -17,6 +17,7 @@ export class CustomerComponent implements OnInit {
   private authService = inject(AuthService);
 
   isLoading = false;
+  isLoadingFake = false;
   customers: Customer[] = [];
   selectedCustomer?: Customer;
 
