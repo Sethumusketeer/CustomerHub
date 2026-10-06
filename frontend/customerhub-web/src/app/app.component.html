@@ -1,5 +1,7 @@
-<app-header></app-header>
+@if (showAppHeader) {
+  <app-header></app-header>
+}
 
-<main class="app-content">
+<main [class.app-content]="showAppHeader">
   <router-outlet></router-outlet>
 </main>

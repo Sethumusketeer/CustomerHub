@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import { CustomerAddComponent } from './customer-add/customer-add.component';
@@ -9,38 +10,49 @@ import { UsersComponent } from './users/users.component';
 import { adminGuard } from './admin.guard';
 
 export const routes: Routes = [
+
+  {
+    path: '',
+    component: HomeComponent
+  },
+
   {
     path: 'login',
     component: LoginComponent
   },
+
   {
     path: 'customers',
     component: CustomerComponent,
     canActivate: [authGuard]
   },
+
   {
     path: 'customers/add',
     component: CustomerAddComponent,
     canActivate: [adminGuard]
   },
+
   {
     path: 'customers/:id/edit',
     component: CustomerEditComponent,
     canActivate: [adminGuard]
   },
+
   {
     path: 'customers/:id',
     component: CustomerDetailsComponent,
     canActivate: [authGuard]
   },
+
   {
     path: 'users',
     component: UsersComponent,
     canActivate: [adminGuard]
   },
+
   {
-    path: '',
-    redirectTo: 'customers',
-    pathMatch: 'full'
+    path: '**',
+    redirectTo: ''
   }
 ];

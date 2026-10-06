@@ -46,11 +46,18 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AngularClient", policy =>
     {
+        var origins = new List<string>
+        {
+            "http://localhost:4200"
+        };
+
+        if (!string.IsNullOrWhiteSpace(allowedOrigin))
+        {
+            origins.Add(allowedOrigin);
+        }
+
         policy
-            .WithOrigins(
-                "http://localhost:4200",
-                allowedOrigin!
-            )
+            .WithOrigins(origins.ToArray())
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
