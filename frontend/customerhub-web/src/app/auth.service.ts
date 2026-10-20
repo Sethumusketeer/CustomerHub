@@ -56,6 +56,27 @@ export class AuthService {
     }
   }
 
+  getUsername(): string | null {
+    const token = this.getToken();
+
+    if (!token) {
+      return null;
+    }
+
+    try {
+      const payload = JSON.parse(
+        atob(token.split('.')[1])
+      );
+
+      return payload[
+        'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'
+      ] ?? null;
+
+    } catch {
+      return null;
+    }
+  }
+
   isAdmin(): boolean {
     return this.getRole() === 'Admin';
   }

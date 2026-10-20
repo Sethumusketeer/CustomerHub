@@ -8,6 +8,7 @@ import { authGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
 import { UsersComponent } from './users/users.component';
 import { adminGuard } from './admin.guard';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const routes: Routes = [
 
@@ -19,6 +20,12 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [authGuard]
   },
 
   {
@@ -51,6 +58,11 @@ export const routes: Routes = [
     canActivate: [adminGuard]
   },
 
+  {
+    path: '',
+    component: HomeComponent
+  },
+  
   {
     path: '**',
     redirectTo: ''

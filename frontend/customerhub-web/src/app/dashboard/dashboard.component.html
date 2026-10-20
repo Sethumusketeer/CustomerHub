@@ -1,0 +1,134 @@
+<div class="kpi-grid">
+
+  <div class="kpi-card">
+    <div class="kpi-icon">👥</div>
+
+    <div>
+      <p>Total Customers</p>
+      <h2>{{ totalCustomers }}</h2>
+    </div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-icon">🟢</div>
+
+    <div>
+      <p>Active Customers</p>
+      <h2>{{ activeCustomers }}</h2>
+    </div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-icon">👤</div>
+
+    <div>
+      <p>Current User</p>
+      <h2>{{ username }}</h2>
+    </div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-icon">🔐</div>
+
+    <div>
+      <p>Role</p>
+      <h2>{{ role }}</h2>
+    </div>
+  </div>
+
+</div>
+
+<div class="recent-customers">
+
+  <div class="section-header">
+    <div>
+      <h2>Recent Customers</h2>
+      <p>Customers from your CustomerHub database</p>
+    </div>
+
+    <a routerLink="/customers" class="view-all">
+      View All →
+    </a>
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Customer</th>
+          <th>Email Address</th>
+          <th>Phone Number</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (customer of recentCustomers; track customer.id) {
+          <tr>
+            <td>
+              <div class="customer-name">
+                <span class="customer-avatar">
+                  {{ customer.name.charAt(0).toUpperCase() }}
+                </span>
+                <span>{{ customer.name }}</span>
+              </div>
+            </td>
+
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.phone }}</td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="3" class="empty-state">
+              No customers found.
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<section class="quick-actions">
+
+  <div class="section-header">
+    <div>
+      <h2>Quick Actions</h2>
+      <p>Shortcuts to manage your CustomerHub application</p>
+    </div>
+  </div>
+
+  <div class="actions-grid">
+
+    <a routerLink="/customers" class="action-card">
+      <span class="action-icon customers-icon">👥</span>
+      <span class="action-content">
+        <strong>View Customers</strong>
+        <small>Browse customer records</small>
+      </span>
+      <span class="action-arrow">→</span>
+    </a>
+
+    @if (isAdmin) {
+      <a routerLink="/customers/add" class="action-card">
+        <span class="action-icon add-icon">➕</span>
+        <span class="action-content">
+          <strong>Add Customer</strong>
+          <small>Register a new customer</small>
+        </span>
+        <span class="action-arrow">→</span>
+      </a>
+
+      <a routerLink="/users" class="action-card">
+        <span class="action-icon users-icon">🔐</span>
+        <span class="action-content">
+          <strong>Manage Users</strong>
+          <small>Manage application users</small>
+        </span>
+        <span class="action-arrow">→</span>
+      </a>
+    }
+
+  </div>
+
+</section>

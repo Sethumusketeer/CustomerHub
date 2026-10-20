@@ -42,7 +42,7 @@ export class LoginComponent {
     this.authService.login(credentials).subscribe({
       next: () => {
         this.isLoggingIn = false;
-        this.router.navigate(['/customers']);
+        this.router.navigate(['/dashboard']);
       },
 
       error: (error) => {
